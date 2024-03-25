@@ -1,23 +1,14 @@
-enum Role{
-    ADMIN, READ_ONLY, AUTHOR
+function combine(input1: number | string, input2: number | string){
+    let result;
+    if(typeof input1 === 'number' && typeof input2 === 'number'){
+        result = input1 + input2;
+    }else{
+        result = input1.toString() + input2.toString();
+    }
+    return result;
 }
 
-const person ={
-    name: 'zz',
-    age: 30,
-    hobbies: ['sports', 'cooking'],
-    role:Role.ADMIN
-}
-
-// person.role.push['admin']; // push works - its exception
-//person.role[1] = 10; // it is allowed without explicit tuple type definition in object because without it its only array of either string or number (string | number)[]
-//person.role = [0,'worker', 'a']// error
-for(const hobby of person.hobbies){
-    console.log(hobby.toUpperCase())
-}
-
-if(person.role === Role.ADMIN){
-    console.log('its admin')
-}
-
-console.log(person.name)
+const combinedAges = combine(30,24)
+console.log(combinedAges)
+const combinedNames = combine('Max','Anna')
+console.log(combinedNames)
